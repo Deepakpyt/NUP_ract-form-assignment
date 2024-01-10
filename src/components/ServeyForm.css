@@ -1,0 +1,119 @@
+form {
+    background: rgba(0, 0, 0, 0.30);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    border-radius: 2em;
+    padding: 1vh 5vh 5vh 5vh;
+    align-items: center;
+    justify-content: center;
+
+    input {
+        height: 5vh;
+        border: none;
+        outline: none;
+        padding: 0.4em 1em;
+        border-radius: 2em;
+        background: rgba(0, 0, 0, 0.30);
+        color: white;
+        font-family: inherit;
+    }
+
+    #submit {
+        width: 50%;
+        background: rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+    }
+
+    #submit:hover {
+        background: #7c7c7c6b;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    .competency {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    textarea {
+        width: calc(100% - 48px);
+        min-height: 9vh;
+        padding: .5vh 1vh;
+        box-sizing: border-box;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        resize: none;
+    }
+
+    select {
+        height: 5vh;
+        background-color: blue;
+        color: blanchedalmond;
+        font-size: Arial;
+    }
+
+    .errors {
+        color: red;
+        font-size: .7rem;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+}
+
+.spiral {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    padding: 1vh;
+    justify-content: center;
+}
+.spiral2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    top: 105vh;
+    left: 34vw;
+    padding: 1vh;
+    
+    z-index: 100;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spiral {
+    0% {
+        --angle: 0deg;
+    }
+    100% {
+        --angle: 360deg;
+    }
+}
+
+.character {
+    color: black;
+    font-size: 1.5em;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+    transform: translateY(calc(sin(var(--angle)) * 5vh)) scale(calc(cos(var(--angle))* 0.5 + 0.5));
+    animation: spiral 4s linear infinite;
+}
